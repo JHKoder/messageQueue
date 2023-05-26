@@ -3,6 +3,8 @@ package github.oineh.user.repository;
 import github.oineh.user.entity.User;
 
 import java.util.HashMap;
+import java.util.Map;
+import java.util.Optional;
 
 public class LocalUserRepository implements UserRepository{
     private final HashMap<Long, User> datas;
@@ -26,7 +28,7 @@ public class LocalUserRepository implements UserRepository{
     @Override
     public boolean delete(Long index) {
         datas.remove(index);
-        return false;
+        return true;
     }
 
 
@@ -41,5 +43,21 @@ public class LocalUserRepository implements UserRepository{
                 .findFirst()
                 .orElseThrow()
                 .getKey();
+    }
+
+    @Override
+    public Optional<User> select(String id, String pw) {
+        return datas.values().stream()
+                .filter(user -> user.getId().equals(id))
+                .filter(user -> user.getPw().equals(pw))
+                .findFirst();
+    }
+
+    @Override
+    public Optional<Long> findById(String id) {
+        return datas.entrySet().stream()
+                .filter(entry -> entry.getValue().equals(id))
+                .map(Map.Entry::getKey)
+                .findFirst();
     }
 }
