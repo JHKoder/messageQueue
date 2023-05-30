@@ -1,4 +1,4 @@
-package github.oineh.user.local.entity;
+package github.oineh.user.entity;
 
 public class User {
     private final String id;

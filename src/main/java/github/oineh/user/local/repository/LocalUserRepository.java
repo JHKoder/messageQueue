@@ -1,6 +1,6 @@
 package github.oineh.user.local.repository;
 
-import github.oineh.user.local.entity.User;
+import github.oineh.user.entity.User;
 import lombok.RequiredArgsConstructor;
 
 import java.util.Map;

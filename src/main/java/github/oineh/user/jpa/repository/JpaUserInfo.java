@@ -1,7 +1,7 @@
 package github.oineh.user.jpa.repository;
 
-import github.oineh.user.jpa.entity.UserEntity;
-import github.oineh.user.local.entity.User;
+import github.oineh.user.entity.UserEntity;
+import github.oineh.user.entity.User;
 import lombok.RequiredArgsConstructor;
 
 import javax.persistence.EntityManager;

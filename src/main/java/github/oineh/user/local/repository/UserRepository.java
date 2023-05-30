@@ -2,7 +2,7 @@ package github.oineh.user.local.repository;
 
 
 import github.oineh.common.Repository;
-import github.oineh.user.local.entity.User;
+import github.oineh.user.entity.User;
 
 import java.util.Optional;
 

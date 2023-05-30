@@ -1,6 +1,5 @@
-package github.oineh.user.jpa.entity;
+package github.oineh.user.entity;
 
-import github.oineh.user.local.entity.User;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 

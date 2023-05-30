@@ -1,6 +1,6 @@
 package github.oineh.user.jpa.repository;
 
-import github.oineh.user.jpa.entity.UserEntity;
+import github.oineh.user.entity.UserEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.Optional;

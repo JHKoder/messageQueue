@@ -1,6 +1,6 @@
 package github.oineh.user.local.service;
 
-import github.oineh.user.local.entity.User;
+import github.oineh.user.entity.User;
 import github.oineh.user.local.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 
