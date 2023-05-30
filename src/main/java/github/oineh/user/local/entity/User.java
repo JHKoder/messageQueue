@@ -1,6 +1,7 @@
-package github.oineh.user.entity;
+package github.oineh.user.local.entity;
 
-public class User  {
+
+public class User {
     private final String id;
     private final String pw;
 
@@ -15,9 +16,5 @@ public class User  {
 
     public String getPw() {
         return pw;
-    }
-
-    public boolean isId(User targerUser){
-        return this.getId().equals(targerUser.getId());
     }
 }
