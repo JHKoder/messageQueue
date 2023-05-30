@@ -1,6 +1,5 @@
 package github.oineh.user.local.entity;
 
-
 public class User {
     private final String id;
     private final String pw;

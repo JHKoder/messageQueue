@@ -24,10 +24,10 @@ public class UserEntity {
     }
 
     public static UserEntity of(User user) {
-        return new UserEntity(user.getId(),user.getPw());
+        return new UserEntity(user.getId(), user.getPw());
     }
 
     public User toDomain() {
-        return new User(this.id,this.pw);
+        return new User(this.id, this.pw);
     }
 }
