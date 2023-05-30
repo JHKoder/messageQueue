@@ -1,8 +1,10 @@
 package github.oineh.common;
 
+import java.util.Optional;
+
 public interface Repository<K,T> {
-    void create(T t);
-    boolean update(K k,T t);
-    boolean delete(K k);
-    T select(K k);
+    Optional<T> create(T t);
+    Optional<T> update(K k,T t);
+    void delete(K k);
+    Optional<T> select(K k);
 }
