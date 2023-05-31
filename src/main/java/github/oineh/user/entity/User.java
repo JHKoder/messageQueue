@@ -1,19 +1,16 @@
 package github.oineh.user.entity;
 
+import lombok.Getter;
+
+@Getter
 public class User {
-    private final String id;
+    private final Long id;
+    private final String loginId;
     private final String pw;
 
-    public User(String id, String pw) {
+    public User(Long id,String loginId, String pw) {
         this.id = id;
+        this.loginId = loginId;
         this.pw = pw;
-    }
-
-    public String getId() {
-        return id;
-    }
-
-    public String getPw() {
-        return pw;
     }
 }

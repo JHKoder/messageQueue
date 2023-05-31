@@ -1,32 +1,34 @@
 package github.oineh.user.entity;
 
+import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.*;
-
 import static lombok.AccessLevel.PROTECTED;
+
 
 @Entity
 @Getter
-@Table
+@Table(name = "users")
 @NoArgsConstructor(access = PROTECTED)
 public class UserEntity {
 
     @Id
-    private String id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+    private String loginId;
     private String pw;
 
-    public UserEntity(String id, String pw) {
-        this.id = id;
+    public UserEntity(String loginId, String pw) {
+        this.loginId = loginId;
         this.pw = pw;
     }
 
     public static UserEntity of(User user) {
-        return new UserEntity(user.getId(), user.getPw());
+        return new UserEntity(user.getLoginId(), user.getPw());
     }
 
     public User toDomain() {
-        return new User(this.id, this.pw);
+        return new User(this.id,this.loginId, this.pw);
     }
 }
