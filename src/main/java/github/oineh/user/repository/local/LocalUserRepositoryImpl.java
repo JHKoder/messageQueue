@@ -1,4 +1,4 @@
-package github.oineh.user.local.repository;
+package github.oineh.user.repository.local;
 
 import github.oineh.user.entity.User;
 import lombok.RequiredArgsConstructor;
@@ -8,13 +8,13 @@ import java.util.Optional;
 import java.util.concurrent.ConcurrentHashMap;
 
 @RequiredArgsConstructor
-public class LocalUserRepository implements UserRepository {
+public class LocalUserRepositoryImpl implements LocalUserRepository {
 
-    // jpa 가 db 매핑시킬때 이코드만 슬쩍 가져와서 매칭시켜주면 entity 내부필드는 final 을 선언해서 불변성을 가질수 있지 않을까?
+    // db 연결이 끊기면 긴급용으로 사용하면 좋지 않을까?
     private final ConcurrentHashMap<Long, User> datas;
 
     @Override
-    public Optional<User> create(User user) {
+    public Optional<User> save(User user) {
         datas.put(datas.entrySet().stream().count(), user);
         return Optional.ofNullable(user);
     }
@@ -37,17 +37,22 @@ public class LocalUserRepository implements UserRepository {
     }
 
     @Override
-    public Optional<Long> findById(String id) {
+    public Optional<Long> findByLoginId(String id) {
         return datas.entrySet().stream()
-                .filter(entry -> entry.getValue().getId().equals(id))
+                .filter(entry -> entry.getValue().getLoginId().equals(id))
                 .map(Map.Entry::getKey)
                 .findFirst();
     }
 
-    public Optional<User> findByIdAndPw(String id, String pw) {
+    public Optional<User> findByLoginIdAndPw(String id, String pw) {
         return datas.values().stream()
-                .filter(user -> user.getId().equals(id))
+                .filter(user -> user.getLoginId().equals(id))
                 .filter(user -> user.getPw().equals(pw))
                 .findFirst();
+    }
+
+    @Override
+    public Long getId() {
+        return datas.entrySet().stream().count();
     }
 }
