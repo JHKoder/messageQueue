@@ -1,4 +1,4 @@
-package github.oineh.user.jpa.repository;
+package github.oineh.exception;
 
 public class PermanenceException extends RuntimeException {
     public PermanenceException(String message) {
